@@ -1,9 +1,21 @@
 <template>
   <div>
-    <div class="search-hader"></div>
+    <div class="search-header">
+      <van-search v-model="value"
+                  show-action
+                  @search="onSearch">
+        <div slot="action"
+             @click="onSearch">搜索</div>
+      </van-search>
+    </div>
     <div class="search-block">
       <ul class="block-list">
-        <li class="item"></li>
+        <li v-for="item in blockList"
+            :key="item.id">
+          <p v-bind:style="{color:item.color}">{{item.name}}</p>
+          <p class="desc"
+             v-bind:style="{color:item.smallColor}">{{item.desc}}</p>
+        </li>
       </ul>
     </div>
   </div>
@@ -14,6 +26,7 @@ export default {
   name: 'search',
   data () {
     return {
+      value: '',
       blockList: [{
         id: '1',
         name: '电影',
@@ -88,9 +101,37 @@ export default {
         smallColor: '#999'
       }]
     }
+  },
+  methods: {
+    onSearch () {
+      console.log('a')
+    }
   }
 }
 </script>
 
 <style scoped lang="stylus">
+@import '~styles/varibles.styl'
+
+.search-header
+  background $searchColor
+  padding 0 $20
+
+.block-list
+  background $contentColor
+  display flex
+  flex-wrap wrap
+  font-size $font16
+  align-items center
+
+  li
+    width 33%
+    text-align center
+    padding-top $20
+    padding-bottom $20
+    font-size $font24
+
+  .desc
+    padding-top $10
+    font-size $font8
 </style>

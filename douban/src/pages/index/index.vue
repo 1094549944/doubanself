@@ -1,7 +1,7 @@
 <template>
-  <div>
-
+  <div class="content">
     <common-page></common-page>
+    <div></div>
   </div>
 </template>
 
@@ -14,6 +14,10 @@ export default {
   }
 }
 </script>
+<style scoped lang="stylus">
+@import '~styles/varibles.styl'
 
-<style scoped>
+.content
+  background $searchColor
+  padding 0 $20
 </style>

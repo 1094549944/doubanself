@@ -1,14 +1,14 @@
 <template>
-  <div id="app">
-    <router-view/>
+  <div>
+    推荐列表
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'recommend'
 }
 </script>
 
-<style>
+<style scoped>
 </style>

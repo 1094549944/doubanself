@@ -2,7 +2,7 @@
  * @Author: jiaxinying
  * @Date: 2018-06-22 17:35:00
  * @Last Modified by: jiaxinying
- * @Last Modified time: 2018-06-27 14:21:36
+ * @Last Modified time: 2018-06-27 17:36:04
  */
 
 'use strict'
@@ -10,6 +10,8 @@ import Error403 from 'pages/error403'
 import Error404 from 'pages/error404'
 import Error500 from 'pages/error500'
 import IndexHome from 'pages/index'
+
+import Search from 'pages/search'
 
 export const constantRoutes = [{
   path: '/',
@@ -32,6 +34,10 @@ export const constantRoutes = [{
   path: '/IndexHome',
   name: 'IndexHome',
   component: IndexHome
+}, {
+  path: '/Search',
+  name: 'Search',
+  component: Search
 }, {
   path: '*',
   redirect: '/404',
