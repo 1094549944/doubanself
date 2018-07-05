@@ -43,5 +43,16 @@ npm install babel-polyfill --save
 npm install normalize.css --save
 
 
+## 安装vuex 来存储数据
+
+npm install vuex --save
+
+## 安装axios，来请求数据
+
+npm install axios --save
+
+
+## 解决无法跨域使用jsonp 
+npm i jsonp --save-dev
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

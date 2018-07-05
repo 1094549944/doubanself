@@ -58,6 +58,7 @@ export default {
 
   .logo
     color $dbColor
+    padding-left $20
 
   .span-item
     display flex

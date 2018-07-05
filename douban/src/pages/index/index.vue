@@ -5,15 +5,32 @@
       <li v-for="item in tabList"
           :key="item.id">{{item.name}}</li>
     </ul>
+    <div class="list">
+
+      <goods-component v-for="item in events"
+                       :key="item.id"
+                       :title="item.title"
+                       :content="item.content"
+                       :categoryName="item.category_name"
+                       :img="item.image_hlarge"
+                       :id="item.id"></goods-component>
+      <loading v-show="show"></loading>
+    </div>
   </div>
 </template>
 
 <script>
 import commonPage from 'common/common/index'
+import goodsComponent from 'common/common/goodsComponent'
+import loading from 'common/common/loading'
+import jsonp from 'jsonp'
+import url from '@/apiConfig.js'
 export default {
   name: 'indexHome',
   components: {
-    commonPage
+    commonPage,
+    goodsComponent,
+    loading
   },
   data () {
     return {
@@ -29,7 +46,26 @@ export default {
       }, {
         id: '4',
         name: '使用豆瓣App'
-      }]
+      }],
+      events: [],
+      show: true
+
+    }
+  },
+  created () {
+    this.getInfo()
+  },
+  methods: {
+    getInfo () {
+      jsonp(url.getHomeInfo, { start: 0, count: 3 }, (err, data) => {
+        if (err) {
+          console.error(err.message)
+        } else {
+          console.log(data)
+          this.events = data.events
+          this.show = false
+        }
+      });
     }
   }
 }
@@ -52,8 +88,11 @@ export default {
       width 4rem
       text-align center
       background $BgColor
-      margin 0.053333rem
       padding $10 0
       font-size $font12
       color $fontColor
+      margin $5
+
+  .list
+    padding $20
 </style>
